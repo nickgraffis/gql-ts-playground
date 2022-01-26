@@ -1,0 +1,9 @@
+# import Post from './two.graphql'
+
+schema {
+  query: Query
+}
+
+type Query {
+   filterPosts(query: String!): [Post]!
+}

@@ -1,0 +1,26 @@
+{
+  "name": "gqltest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init": "graphql-codegen init",
+    "scriptfy": "graphql-codegen --config codegen.yml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "appsync-schema-converter": "^2.0.0",
+    "fast-glob": "^3.2.11",
+    "graphql": "^16.3.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "2.4.0",
+    "@graphql-codegen/typescript": "2.4.2",
+    "@graphql-codegen/typescript-apollo-angular": "3.3.2",
+    "@graphql-codegen/typescript-operations": "2.2.2",
+    "@graphql-codegen/introspection": "2.1.1"
+  }
+}

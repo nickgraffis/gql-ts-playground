@@ -1,0 +1,165 @@
+type Query {
+  getCompaniesByLocaiton(
+    coords: [Float],
+    filters: MarketInsightsFilters,
+    page: Page
+  ): [Company]
+  getCompaniesByName(
+    query: String,
+    filters: MarketInsightsFilters,
+    page: Page
+  ): [Company]
+  getCompanyByNmlsId(nmlsId: String): Company
+  getCompanyBranches(nmlsId: String): [Branch]
+  getBranchesByLocation(
+    coords: [Float],
+    filters: MarketInsightsFilters,
+    page: Page
+  ): [Branch]
+}
+
+type Mutation {
+  addCompany(input: String): Company
+}
+
+type CoordinateObject {
+  lat: Float
+  lon: Float
+}
+
+type Stats {
+  per_conventional: Int,
+  per_purchase: Int,
+}
+
+type Branch {
+  CompanyNMLSID: String,
+  Name: String,
+  City: String,
+  State: String,
+  PostalCode: String,
+  Street: String,
+  Street2: String,
+  location: CoordinateObject,
+  Country: String,
+  IsAuthorized: String,
+  BranchNMLSID: String,
+  individuals: [String],
+  LocationNMLSID: String,
+  teamSize: Int,
+  trailing12: Trailing12,
+  stats: Stats,
+  volume: Int,
+  unitCount: Int,
+  id: String,
+}
+
+type Company {
+  Name: String,
+  City: String,
+  State: String,
+  PostalCode: String,
+  Street: String,
+  Street2: String,
+  location: CoordinateObject,
+  Country: String,
+  PrimaryFederalRegulator: String,
+  RegistrationStatus: String,
+  BusinessStructure: String,
+  FiscalYearEnd: String,
+  FormedIn: String,
+  DateFormed: String,
+  StockSymbol: String,
+  CompanyNMLSID: String,
+  individuals: [String],
+  teamSize: String,
+  LocationNMLSID: String,
+  licenses: [String],
+  no_of_licenses: String,
+  websites: [String],
+  trailing12: Trailing12,
+  stats: Stats,
+  volume: Int,
+  unitCount: Int,
+  id: String,
+}
+
+type ProductMix {
+  conventional: Int,
+  government: Int,
+  other: Int,
+  nonConforming: Int,
+  per_conventional: Int,
+  per_government: Int,
+  per_other: Int,
+  per_nonConforming: Int,
+}
+
+type TransactionMix {
+  purchase: Int,
+  refinance: Int,
+  construction: Int,
+  equity: Int,
+  REO: Int,
+  per_purchase: Int,
+  refi: Int,
+  per_construction: Int,
+  per_equity: Int,
+  per_REO: Int,
+}
+
+type LoanTypes {
+  baloon: Int,
+  commercial: Int,
+  other: Int,
+  conventional: Int,
+  HELOC: Int,
+  VA: Int,
+  USDA: Int,
+  reverse: Int,
+  HE: Int,
+  FHA: Int,
+  building: Int,
+  unknown: Int
+}
+
+type Trailing12 {
+  volume: Int,
+  endYear: Int,
+  endMonth: Int,
+  avgPerUnit: Int,
+  totalUnits: Int,
+  period: String,
+  productMix: ProductMix,
+  transactionMix: TransactionMix,
+  loanTypes: LoanTypes,
+}
+
+input MarketInsightsFilters {
+  licenses: [String],
+  hasFilters: Boolean,
+  distance: Int,
+  teamSize: Int,
+  branchCount: Int,
+  companyTeamSize: Int,
+  volume: Range,
+  companyVolume: Range,
+  build: Range,
+  conventional: Range,
+  government: Range,
+  purchase: Range,
+  refinance: Range,
+  revenue: Range,
+  loanOriginator: Boolean,
+  branchManager: Boolean,
+}
+
+input Range {
+  min: Int,
+  max: Int
+}
+
+input Page {
+  page: Int
+  size: Int
+}

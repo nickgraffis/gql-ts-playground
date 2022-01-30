@@ -1,0 +1,31 @@
+mappingTemplates:
+  - dataSource: marketinsights
+    type: Query
+    field: getCompaniesByLocaiton
+    request: getCompaniesByLocaitonRequestTemplate.json
+    response: defaultResponseTemplate.json
+  - dataSource: marketinsights
+    type: Query
+    field: getCompaniesByName
+    request: getCompaniesByNameRequestTemplate.json
+    response: defaultResponseTemplate.json
+  - dataSource: marketinsights
+    type: Query
+    field: getCompanyByNmlsId
+    request: getCompanyByNmlsIdRequestTemplate.json
+    response: defaultResponseTemplate.json
+  - dataSource: marketinsights
+    type: Query
+    field: getCompanyBranches
+    request: getCompanyBranchesRequestTemplate.json
+    response: defaultResponseTemplate.json
+  - dataSource: marketinsights
+    type: Query
+    field: getBranchesByLocation
+    request: getBranchesByLocationRequestTemplate.json
+    response: defaultResponseTemplate.json
+  - dataSource: marketinsights
+    type: Mutation
+    field: addCompany
+    request: addCompanyRequestTemplate.json
+    response: defaultResponseTemplate.json
